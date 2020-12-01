@@ -35,8 +35,8 @@ $ docker rm w1
 
 ```
 $ docker run -d --name w1 -p 8080:80 nginx
-$ docker exec -it bash
-$ cd \usr\share\nginx\html
+$ docker exec -it w1 bash
+$ cd /usr/share/nginx/html
 $ rm index.html
 $ echo "Hello World" > index.html
 $ exit
