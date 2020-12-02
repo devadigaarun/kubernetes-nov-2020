@@ -24,3 +24,23 @@
         Otherfiles
         Otherdirectory\
     ```
+
+* Dockerfile Syntax
+
+    ```
+    # Base image for current one
+    FROM <BaseImageName>
+
+    # Copy files and directories
+    COPY <sourcefile> <inside-container-path>
+
+    # Copy and extract contents of TAR
+    ADD <sourcefile> <inside-container-path>
+
+    # Run a command in BUILD process
+    RUN <Cmd> <Arg>
+
+    # Define the ROOT process for container
+    # When missing, CMD from BASE-IMAGE would be used!
+    CMD <Cmd> <Arg>
+    ```
