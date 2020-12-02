@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+
+  cli:
+    image: busybox
+    command: sleep 100s
+    networks:
+    - net1
+
+  app:
+    image: nginx
+    ports:
+    - 80
+    networks:
+    - net1
+
+networks:
+
+  net1:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 14.0.0.0/16
+  
