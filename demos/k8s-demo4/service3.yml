@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myweb
+
+spec:
+  selector:
+    app-name: app1
+  ## LB is Implemented by Cloud Vendor
+  ## On EKS, You get Elastic Load Balancer
+  ## On AKS, You get Azure Load Balancer
+  ## In Both Cases, you get PUBLIC-IP
+  ## In case docker-desktop, you get to use same hostname 'kubernetes.internal.docker'
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 80
