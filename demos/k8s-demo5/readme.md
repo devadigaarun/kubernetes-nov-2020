@@ -8,7 +8,7 @@
     ```
     $ kubectl apply -f config1.yml
     $ kubectl apply -f configpod.yml
-    $ kubectl exec configpod -- sh
+    $ kubectl exec -it configpod -- sh
     $ echo $MYNAME
     $ echo $CITY
     $ exit
