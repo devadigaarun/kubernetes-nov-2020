@@ -7,6 +7,10 @@ spec:
   ## Maintain ONLY three Revisions in history
   revisionHistoryLimit: 3
   ## Wait for 5 seconds after container is launched
+  strategy:
+    rollingUpdate:
+      maxSurge: 2 
+      maxUnavailable: 2
   minReadySeconds: 5
   replicas: 3
   selector:
@@ -18,7 +22,7 @@ spec:
         app-name: app1
     spec:
       containers:
-        - image: mahendrshinde/myweb:1
+        - image: mahendrshinde/myweb:2
           name: web
           resources:
             limits:
