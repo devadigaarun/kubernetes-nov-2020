@@ -31,3 +31,4 @@ $ kubectl proxy
 
     `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#`
 
+4.  Closing command prompt or stopping `kubectl proxy` would disconnect you from dashboard, but keeps dashboard running.
