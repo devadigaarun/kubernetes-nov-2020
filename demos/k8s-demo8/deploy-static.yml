@@ -14,8 +14,9 @@ spec:
       volumes:
         - name: dbvol
           ## The only storageclass available
-          hostPath:
-            path: "/data"
+          azureFile:
+            shareName: share1
+            secretName: azure-secret
 
       containers:
       - name: app4
