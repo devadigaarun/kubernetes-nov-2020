@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica1
+  labels:
+    app: app1
+
+spec:
+  replicas: 3
+  minReadySeconds: 5
+  selector:
+    ## Any POD with following labels is PART of this replica!
+    matchLabels:
+      app: app1
+      version: v1
+  ## PodTemplate
+  template:
+    metadata:
+      labels:
+        app: app1
+        version: v1
+    spec:
+      containers:
+        - name: web
+          image: mahendrshinde/myweb:1
+          ports:
+            - containerPort: 80
+    
