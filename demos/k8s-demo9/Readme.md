@@ -123,3 +123,7 @@
     $ kubectl delete -f pvc1.yml
     $ kubectl get pv, pvc
     ```
+
+> Multiple instances of POD can access SAME volume, provided that application inside POD doesn't claim exclusive access to volume.
+
+> In MYSQL pod, only one POD can get Exclusive access to the Volume.
