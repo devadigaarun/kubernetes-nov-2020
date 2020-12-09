@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-svc
+  namespace: mahendra
+  labels:
+    app: myapp
+spec:
+  clusterIP: None
+  sessionAffinity: ClientIP
+  selector:
+    app: myapp
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: myapp
+  namespace: mahendra
+  labels:
+    app: myapp
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  serviceName: myapp-svc
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - image: mahendrshinde/myweb
+          name: web
+          ports:
+            - containerPort: 80
+    
