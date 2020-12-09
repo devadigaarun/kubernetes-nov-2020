@@ -24,6 +24,15 @@ spec:
       app: myapp
   serviceName: myapp-svc
   replicas: 3
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 1Gi
   template:
     metadata:
       labels:
@@ -34,3 +43,6 @@ spec:
           name: web
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /data
+              name: www

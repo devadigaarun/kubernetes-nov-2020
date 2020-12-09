@@ -30,3 +30,34 @@
     ```
 
 4.  Use the external-ip of app-svc to make new request!
+
+
+5.  Adding `PersistentVolumeClaim` makes EACH pod have it's OWN PersistentVolume.
+
+6.  Redeploy the modified StatefulSet and check the PVCs
+
+    ```
+    $ kubectl get po, pvc, pv -n mahendra
+    ```
+
+7.  Test the Pod replacements and volume binding.
+
+    ```
+    $ kubectl exec -n mahendra -it myapp-0 -- sh
+    $ cd /data
+    $ mkdir temp
+    $ cd temp
+    $ echo 'Hello World' > file1.txt
+    $ exit
+    $ kubectl delete po -n mahendra myapp-0
+    ## Wait for 2/3 minutes
+    $ kubectl exec -n mahendra -it myapp-0 -- sh
+    $ cat /data/temp/file1.txt
+    $ exit
+    ```
+
+8.  Clean_up
+
+    ```
+    $ kubectl delete -f .
+    ```
