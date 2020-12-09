@@ -39,3 +39,7 @@
     ```
     $ helm uninstall db1
     ```
+
+> Alternate method for installing packages
+
+   `$ helm install db1 https://hub.helm.sh/charts/bitnami/mysql `
