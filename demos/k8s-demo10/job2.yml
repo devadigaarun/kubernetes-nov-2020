@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+    name: job1
+    namespace: mahendra
+    labels:
+      app: app1
+
+spec:
+  schedule: "*/1 * * * 1-3"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 5
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: myjob
+              image: ubuntu
+              command: [ "echo", "Hello World"]
+              resources:
+                  limits:
+                    cpu: "500m"
+                    memory: "32Mi"

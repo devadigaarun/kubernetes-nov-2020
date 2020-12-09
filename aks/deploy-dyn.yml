@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app5
+spec:
+  selector:
+    matchLabels:
+      app: app5
+  template:
+    metadata:
+      labels:
+        app: app5
+    spec:
+      volumes:
+        - name: dbvol
+          persistentVolumeClaim:
+            claimName: pvc1
+            readOnly: false
+      containers:
+      - name: app4
+        image: mysql:5.7
+        volumeMounts:
+          - name: dbvol
+            mountPath: /var/lib/mysql
+        envFrom:
+          - configMapRef:
+              name: dbconfig
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306

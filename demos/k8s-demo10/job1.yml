@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: job1
+    namespace: mahendra
+    labels:
+      app: app1
+
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: myjob
+          image: ubuntu
+          command: [ "echo", "Hello World"]
+          resources:
+              limits:
+                cpu: "500m"
+                memory: "32Mi"
