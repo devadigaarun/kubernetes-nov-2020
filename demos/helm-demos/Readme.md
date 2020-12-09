@@ -24,8 +24,8 @@
     ```
     $ mkdir samples
     $ cd samples
-    $ helm search mysql
-    $ helm fetch stable/mysql --untar
+    $ helm search repo mysql
+    $ helm fetch bitnami/mysql --untar
     $ cd mysql
     ## Open in VSCode
     $ code mysql
