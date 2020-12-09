@@ -21,3 +21,12 @@
     ```
 
 2.  Try Scale In / Out by changing `replicas:` property.
+
+3.  Deploy the Load Balancer service
+
+    ```
+    $ kubectl apply -f appservice.yml
+    $ kubectl get svc -n mahendra app-svc
+    ```
+
+4.  Use the external-ip of app-svc to make new request!
