@@ -27,6 +27,7 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: www
+        namespace: mahendra
       spec:
         accessModes:
           - "ReadWriteOnce"

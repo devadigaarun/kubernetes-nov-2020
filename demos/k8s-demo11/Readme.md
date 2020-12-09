@@ -37,7 +37,7 @@
 6.  Redeploy the modified StatefulSet and check the PVCs
 
     ```
-    $ kubectl get po, pvc, pv -n mahendra
+    $ kubectl get po,pvc,pv -n mahendra
     ```
 
 7.  Test the Pod replacements and volume binding.
